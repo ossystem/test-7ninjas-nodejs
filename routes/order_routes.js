@@ -36,7 +36,7 @@ router.post('/make', helper.verifyToken, urlencodedParser, async(req, res, next)
         })
         await newOrder.save();
         helper.sendMailToCustomer(product.name, product.price, user.email, user.name);
-        res.send('Okay');
+        res.send({message:'order saved'});
 
     } catch (err) {
         next(err);

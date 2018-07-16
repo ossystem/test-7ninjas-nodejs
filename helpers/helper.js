@@ -32,7 +32,6 @@ const createHtmlReport = () => {
             const maxProductSold = products.reduce(function(prev, current) {
                 return (prev.qty > current.qty) ? prev : current
             });
-            console.log(maxProductSold);
             resolve(`
                 Number of sold products ${numberOfSoldProducts} pcs.</br> 
                 Money gained ${moneyGained} ninjollars</br>
