@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 const router = require('./routes/router');
-
+const cron = require('./crone/cron_list');
 
 startApp();
 
@@ -26,12 +26,11 @@ async function startApp () {
     db.on('error', () => { console.error('MongoDB connection error:')});
     db.on('open', () => { console.log('MongoDB connection established')});
 
-    /* if (nconfig.get('app:cron')) {
-        cron.start();
-    } */
+    cron.start();
 
     app.use('/public', express.static(__dirname + '/public'));
     router(app);
+
     app.use( (err, req, res, next) => {
         if (err) {
             console.log(`error ${err}`);

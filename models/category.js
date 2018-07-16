@@ -7,5 +7,5 @@ const categorySchema = new mongoose.Schema({
     usePushEach: true
 });
 
-const Categories = mongoose.model('category', categorySchema);
+const Categories = mongoose.model('Categories', categorySchema);
 module.exports = Categories;
